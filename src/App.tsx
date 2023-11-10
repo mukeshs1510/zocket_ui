@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Compaign from "./components/Compaign";
 import Products from "./components/Products";
 import Customer from "./components/Customer";
+import CreateCampaign from "./components/CreateCampaign";
 
 function App() {
   return (
@@ -11,7 +12,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />}>
           <Route path="/" element={<Home />} />
-          <Route path="/campaign" element={<Compaign />} />
+          <Route
+            path="/campaign"
+            element={<Compaign />}
+            children={
+              <Route path="create" element={<CreateCampaign />} index={true} />
+            }
+          />
           <Route path="/products" element={<Products />} />
           <Route path="/customer" element={<Customer />} />
         </Route>

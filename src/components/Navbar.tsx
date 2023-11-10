@@ -59,7 +59,7 @@ const NavItemComp = ({
   label,
 }: NavItemCompType) => {
   const navigate = useNavigate();
-  const isActive = useMatch(to);
+  const isActive = useMatch(to + "/*");
 
   const handleClick = () => {
     navigate(to);

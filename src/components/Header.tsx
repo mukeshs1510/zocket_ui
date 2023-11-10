@@ -8,7 +8,7 @@ import LanguageIc from "../assets/language_ic.png";
 const Header = () => {
   return (
     <header className="text-gray-600 body-font shadow-md">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <div className="mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center gap-3 mr-4">
           <p className="text-gray-400 text-sm">Free trial ends in 2 days</p>
           <button className="px-3 py-2 flex gap-1 items-center bg-[#F29A2E] bg-opacity-[10%] rounded-md">
