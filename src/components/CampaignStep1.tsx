@@ -1,69 +1,15 @@
-import { FiPhoneCall } from "react-icons/fi";
 import { AiOutlineCheck } from "react-icons/ai";
-import { BiMessageDetail } from "react-icons/bi";
-import { FiUserPlus, FiUsers } from "react-icons/fi";
-import { AiOutlineEye } from "react-icons/ai";
-import { PiCursorClickLight } from "react-icons/pi";
-import { BsShopWindow } from "react-icons/bs";
-import { TbDeviceMobileDown, TbNotes } from "react-icons/tb";
+import { useDispatch, useSelector } from "react-redux";
+import { CampaignType, updateCampaign } from "./featurs/campaignSlice";
 
 const CampaignStep1 = () => {
-  const features = [
-    {
-      icon: FiPhoneCall,
-      selected: true,
-      title: "Get Leads as calls",
-      desc: "Reach broad audience and get leads through calls",
-    },
-    {
-      icon: BiMessageDetail,
-      selected: false,
-      title: "Get Leads as Facebook messages",
-      desc: "Get more FB messages from Leads",
-    },
-    {
-      icon: FiUserPlus,
-      selected: false,
-      title: "Increase page followers",
-      desc: "Encourage customers to follow your page",
-    },
-    {
-      icon: FiUsers,
-      selected: false,
-      title: "Get Customer Leads",
-      desc: "Encourage customers to take action",
-    },
-    {
-      icon: AiOutlineEye,
-      selected: false,
-      title: "Get more youtube views",
-      desc: "Increase organic views by obtaining user attention",
-    },
-    {
-      icon: PiCursorClickLight,
-      selected: false,
-      title: "Get more website traffic",
-      desc: "Get the right people to visit your website",
-    },
-    {
-      icon: BsShopWindow,
-      selected: false,
-      title: "Increase Live store traffic",
-      desc: "Drive visits to local stores, restaurants & Dealerships",
-    },
-    {
-      icon: TbDeviceMobileDown,
-      selected: false,
-      title: "Increase your App installs",
-      desc: "Get more installs, interactions for your app",
-    },
-    {
-      icon: TbNotes,
-      selected: false,
-      title: "Increase the catalogue sales",
-      desc: "Drive the sales of your catalogue and get more leads",
-    },
-  ];
+  const dispatch = useDispatch();
+  const features = useSelector((state: any) => state.campaignReducer.campaigns);
+  // console.log(features);
+
+  const handleSelectedFeature = (id: number) => {
+    dispatch(updateCampaign(id));
+  };
 
   return (
     <div className="p-8 border border-[#DAE6FF] rounded-xl bg-white">
@@ -73,9 +19,10 @@ const CampaignStep1 = () => {
       <hr />
       <div className="grid grid-cols-3 mt-4 gap-3">
         {features &&
-          features.map((feature) => (
+          features.map((feature: CampaignType) => (
             <div
-              className={`flex gap-4 p-4 items-center border-2 rounded-xl relative ${
+              onClick={() => handleSelectedFeature(feature.id)}
+              className={`flex select-none cursor-pointer gap-4 p-4 items-center border-2 rounded-xl relative ${
                 feature.selected ? "border-[#0F6EFF]" : "border-[#DAE6FF]"
               }`}
             >
