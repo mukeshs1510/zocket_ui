@@ -24,9 +24,7 @@ const CreateCampaign = () => {
     step4: false,
   });
 
-  const handleForwardSteps = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const handleForwardSteps = () => {
     if (stepComplated.step1 && !stepComplated.step2) {
       setStepCompleted({
         ...stepComplated,
@@ -47,9 +45,7 @@ const CreateCampaign = () => {
     }
     console.table(stepComplated);
   };
-  const handleBackSteps = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const handleBackSteps = () => {
     if (stepComplated.step4) {
       setStepCompleted({
         ...stepComplated,
