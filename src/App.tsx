@@ -12,13 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />}>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/campaign"
-            element={<Compaign />}
-            children={
-              <Route path="create" element={<CreateCampaign />} index={true} />
-            }
-          />
+          <Route path="/campaign" element={<Compaign />} />
+          <Route path="/campaign/create" element={<CreateCampaign />} />
           <Route path="/products" element={<Products />} />
           <Route path="/customer" element={<Customer />} />
         </Route>

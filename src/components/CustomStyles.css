@@ -1,0 +1,10 @@
+/* .step2_container {
+  position: relative;
+}
+.step2_container::after {
+  content: "hellooo";
+  color: black;
+  position: absolute;
+  bottom: 0;
+  
+} */
