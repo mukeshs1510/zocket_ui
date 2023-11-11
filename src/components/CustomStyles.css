@@ -8,3 +8,68 @@
   bottom: 0;
   
 } */
+
+.step1_container,
+.step2_container,
+.step3_container,
+.step4_container {
+  position: relative;
+  display: flex;
+}
+
+.step1_ic_container,
+.step2_ic_container,
+.step3_ic_container,
+.step4_ic_container {
+  z-index: 2;
+}
+
+.step1_container::after,
+.step2_container::after,
+.step3_container::after {
+  content: "";
+  height: 2px;
+  width: 80%;
+  background-color: #e7eaf0;
+  display: flex;
+  position: absolute;
+  /* left: 68px; */
+  right: 0;
+  top: 34px;
+  z-index: 1;
+}
+
+.step1_container.active::after,
+.step2_container.active::before,
+.step3_container.active::before,
+.step4_container.active::before,
+.step2_container.active::after,
+.step3_container.active::after {
+  background-color: #ffb963;
+}
+
+.step2_container::before,
+.step3_container::before,
+.step4_container::before {
+  content: "";
+  height: 2px;
+  width: 30%;
+  background-color: #e7eaf0;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 34px;
+  z-index: 1;
+}
+
+/* .step2_container::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #e7eaf0;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 34px;
+  z-index: 1;
+} */
