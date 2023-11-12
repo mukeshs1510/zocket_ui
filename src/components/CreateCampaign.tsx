@@ -8,6 +8,7 @@ import CampaignStep1 from "./CampaignStep1";
 import CampaignStep2 from "./CampaignStep2";
 import CampaignStep3 from "./CampaignStep3";
 import CampaignStep4 from "./CampaignStep4";
+import { useNavigate } from "react-router-dom";
 
 type StepComplatedType = {
   step1: boolean;
@@ -24,26 +25,31 @@ const CreateCampaign = () => {
     step4: false,
   });
 
+  const navigate = useNavigate();
+
   const handleForwardSteps = () => {
     if (stepComplated.step1 && !stepComplated.step2) {
       setStepCompleted({
         ...stepComplated,
         step2: true,
       });
+      return;
     }
     if (stepComplated.step2 && !stepComplated.step3) {
       setStepCompleted({
         ...stepComplated,
         step3: true,
       });
+      return;
     }
     if (stepComplated.step3 && !stepComplated.step4) {
       setStepCompleted({
         ...stepComplated,
         step4: true,
       });
+      return;
     }
-    console.table(stepComplated);
+    navigate("/campaign");
   };
   const handleBackSteps = () => {
     if (stepComplated.step4) {
@@ -51,37 +57,33 @@ const CreateCampaign = () => {
         ...stepComplated,
         step4: false,
       });
+      return;
     }
     if (stepComplated.step3 && !stepComplated.step4) {
       setStepCompleted({
         ...stepComplated,
         step3: false,
       });
+      return;
     }
     if (stepComplated.step2 && !stepComplated.step3) {
       setStepCompleted({
         ...stepComplated,
         step2: false,
       });
+      return;
     }
-    console.table(stepComplated);
   };
 
   return (
-    <div
-      className="py-8 px-10 bg-[#f6f9ff] h-screen"
-      style={{
-        maxHeight: "calc(100vh - 80px)",
-        overflowY: "auto",
-      }}
-    >
+    <div className="py-8 px-4 sm:px-10 bg-[#f6f9ff] h-screen h-inner-scrl">
       <div className="flex justify-between">
         <div>
           <h2 className="font-bold text-2xl">Your Ad Campaigns</h2>
           <p className="text-sm">Launch your ad in just 4 easy steps</p>
         </div>
       </div>
-      <div className="flex mt-12 items-center mb-8">
+      <div className="hidden mt-12 items-center mb-8 sm:flex">
         <div
           className={`flex w-[24%] step1_container ${
             stepComplated.step1 && "active"
@@ -235,17 +237,17 @@ const CreateCampaign = () => {
         </div>
       </div>
       {getStepDetails(stepComplated)}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mt-4">
         {stepComplated.step2 && (
           <button
-            className="flex mt-3 items-center gap-2 rounded-xl px-8 py-2 bg-gray-300 text-black"
+            className="flex items-center gap-2 rounded-xl px-8 py-2 bg-gray-300 text-black"
             onClick={handleBackSteps}
           >
             Back
           </button>
         )}
         <button
-          className="flex ml-auto mt-5 items-center gap-2 rounded-xl px-8 py-2 bg-[#0F6EFF] text-white"
+          className="flex ml-auto items-center gap-2 rounded-xl px-8 py-2 bg-[#0F6EFF] text-white"
           onClick={handleForwardSteps}
         >
           Continue

@@ -1,25 +1,26 @@
 import { AiOutlineCheck } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { CampaignType, updateCampaign } from "./featurs/campaignSlice";
+import { FeaturesType, updateFeatures } from "./featurs/campaignSlice";
 
 const CampaignStep1 = () => {
   const dispatch = useDispatch();
-  const features = useSelector((state: any) => state.campaignReducer.campaigns);
+  const features = useSelector((state: any) => state.campaignReducer.features);
   // console.log(features);
 
   const handleSelectedFeature = (id: number) => {
-    dispatch(updateCampaign(id));
+    dispatch(updateFeatures({ id }));
   };
 
   return (
-    <div className="p-8 border border-[#DAE6FF] rounded-xl bg-white">
-      <h2 className="text-black text-sm mb-2">
-        What you want to do? <span className="">(Step 1 of 4)</span>
+    <div className="sm:p-8 p-4 border border-[#DAE6FF] rounded-xl bg-white">
+      <h2 className="text-black text-[16px] mb-2 font-bold">
+        What you want to do?{" "}
+        <span className="text-xs font-normal">(Step 1 of 4)</span>
       </h2>
       <hr />
-      <div className="grid grid-cols-3 mt-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 mt-4 gap-3">
         {features &&
-          features.map((feature: CampaignType) => (
+          features.map((feature: FeaturesType) => (
             <div
               onClick={() => handleSelectedFeature(feature.id)}
               className={`flex select-none cursor-pointer gap-4 p-4 items-center border-2 rounded-xl relative ${

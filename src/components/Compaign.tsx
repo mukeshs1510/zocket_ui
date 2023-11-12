@@ -104,14 +104,8 @@ const Compaign = () => {
   ];
 
   return (
-    <div
-      className="py-8 px-10 bg-[#f6f9ff] h-screen"
-      style={{
-        maxHeight: "calc(100vh - 80px)",
-        overflowY: "auto",
-      }}
-    >
-      <div className="flex justify-between">
+    <div className="py-8 px-10 bg-[#f6f9ff] h-screen h-inner-scrl">
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 justify-between">
         <div>
           <h2 className="font-bold text-2xl">Your Campaigns</h2>
           <p className="text-sm">Check the list of campaigns you created</p>
@@ -124,8 +118,8 @@ const Compaign = () => {
         </Link>
       </div>
       <div className="mt-4 bg-white rounded-xl p-4 border border-[#DAE6FF]">
-        <div className="flex justify-between">
-          <div className="w-1/4 py-2 px-3 border rounded-lg flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-0 justify-between">
+          <div className="sm:w-1/4 w-full py-2 px-3 border rounded-lg flex items-center gap-2">
             <img src={SearchIc} alt="search" />
             <input
               className="border-none  focus-visible:border-none focus-visible:outline-none active:border-none active:outline-none"
@@ -134,7 +128,7 @@ const Compaign = () => {
               placeholder="Search for the campaign"
             />
           </div>
-          <div className="flex gap-1 items-center">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-1 sm:items-center">
             <div className="text-gray-400">Plateform: </div>
             <button className="items-center rounded-md flex p-2 text-black border border-gray-300 gap-2">
               All Platform <img src={ArrowDownIc} />

@@ -1,13 +1,7 @@
-/* .step2_container {
-  position: relative;
+.h-inner-scrl {
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
 }
-.step2_container::after {
-  content: "hellooo";
-  color: black;
-  position: absolute;
-  bottom: 0;
-  
-} */
 
 .step1_container,
 .step2_container,
@@ -61,15 +55,9 @@
   top: 34px;
   z-index: 1;
 }
-
-/* .step2_container::after {
-  content: "";
-  height: 2px;
-  width: 100%;
-  background-color: #e7eaf0;
-  display: flex;
-  position: absolute;
-  right: 0;
-  top: 34px;
-  z-index: 1;
-} */
+@media only screen and (max-width: 600px) {
+  .h-inner-scrl {
+    max-height: calc(100vh - 162px);
+    overflow-y: auto;
+  }
+}
